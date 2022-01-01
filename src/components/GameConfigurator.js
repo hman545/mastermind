@@ -11,6 +11,7 @@ const GameConfigurator = ({startGameCallback}) =>{
     ]);
     const [newColor, setNewColor] = React.useState("#000000");
     const [validColor, setValidColor] = React.useState(true);
+    const [allowDuplicateColors, setAllowDuplicateColors] = React.useState(true);
     const updateColorBox = (event) => {
         setNewColor(event.target.value);
         let pattern = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
@@ -19,13 +20,15 @@ const GameConfigurator = ({startGameCallback}) =>{
     const genCurrentConfig = () => {
         return {
             "colors":colors,
-            "allowDuplicateColors":true,
+            "allowDuplicateColors":allowDuplicateColors,
         };
     };
     const addNewColorCallback = () => {
-        let colorsCopy = [...colors];
-        colorsCopy.push(newColor);
-        setColors(colorsCopy);
+        if(validColor){
+            let colorsCopy = [...colors];
+            colorsCopy.push(newColor);
+            setColors(colorsCopy);
+        }
     };
     const delColor = (index) => {
         let colorsCopy = [];
@@ -48,6 +51,12 @@ const GameConfigurator = ({startGameCallback}) =>{
         ))}
         <textarea value={newColor} onChange={updateColorBox}/>
         <button style={{'backgroundColor':validColor?null:"#e00000"}} onClick={addNewColorCallback}>Add new color</button>
+        <br/>
+        <p>Allow Duplicate Colors:
+            <input type={"checkbox"} checked={allowDuplicateColors} onClick={(()=>{setAllowDuplicateColors(allowDuplicateColors=>!allowDuplicateColors)})} />
+        </p>
+        
+        <br/>
         <br/>
         <button onClick={() =>startGameCallback(genCurrentConfig())} >Play Game</button>
     </div>
