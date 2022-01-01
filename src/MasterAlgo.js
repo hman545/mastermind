@@ -69,7 +69,7 @@ let MasterAlgo = {
         let w = score["numJustColors"];
         let newMasterCodes = [];
         for (let i = 0; i<currentPossibleMasterCodes.length; i++){
-            let temporary= scoreAGuess(guess, currentPossibleMasterCodes[i]);
+            let temporary= MasterAlgo.scoreAGuess(guess, currentPossibleMasterCodes[i]);
             let rtemp = temporary["numPositions"];
             let wtemp = temporary["numJustColors"];
             if(rtemp==r&&wtemp==w){

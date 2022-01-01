@@ -1,6 +1,13 @@
 const ColorDot = ({color}) => {
     return (
-        <div style={{'border-radius':'100%','background-color':color, 'width':'1em','height':'1em', 'margin':'0.3em'}}></div>
+        <div style={{'borderRadius':'100%',
+                'backgroundColor':color,
+                'width':'1em',
+                'height':'1em',
+                'margin':'0.3em',
+                'display':'inline-flex',
+            'border':'0.1em solid black',
+        }}></div>
     );
 };
 
