@@ -15,6 +15,19 @@ let MasterAlgo = {
                 }
             }
         }
+        if (allowRepeatedColors==false){
+            for (let x=0; x <(numberOfColors); x++){
+                for (let y = 0; y<(numberOfColors); y++){
+                    for (let z = 0; z<(numberOfColors); z++){
+                        for (let w = 0; w<(numberOfColors); w++){
+                            if (x!=y&&x!=z&&x!=w&&y!=x&&y!=z&&y!=w&&z!=x&&z!=y&&z!=w&&w!=x&&w!=y&&w!=z){
+                                possibleCodes.push([x,y,z,w]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return possibleCodes;
     },
     scoreAGuess: (guess, code) => {
@@ -27,13 +40,13 @@ let MasterAlgo = {
       let r =0;
       let w =0;
       for (let i = 0; i<4; i++){
-          console.log("--");
             if (guess[i]==code[i]){
                 r++;
             }else{            
                 for(let h = 0; h<4; h++){
                     if(guess[i]==code[h]&&guess[h]!=code[h]){
                     w++;
+                    break;
                     }
                 }
             }
