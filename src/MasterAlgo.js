@@ -33,12 +33,12 @@ let MasterAlgo = {
                     for (let z = 0; z<(numberOfColors); z++){
                         for (let w = 0; w<(numberOfColors); w++){
                             possibleCodes.push([x,y,z,w]);
-                            
                         }
                     }
                 }
             }
         }
+        return possibleCodes;
     }
 
 };
