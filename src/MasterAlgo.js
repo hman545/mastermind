@@ -64,6 +64,13 @@ let MasterAlgo = {
       };
 
     },
+    prunePossibleCodes: (guess, score, currentPossibleMasterCodes) => {
+        let r = score["numPositions"];
+        let w = score["numJustColors"];
+        let newMasterCodes = [];
+        // .. 
+        return newMasterCodes;
+    }
 
 };
 
