@@ -9,6 +9,11 @@ function App() {
         setConfig(cfg);
         setMode("PlayGame");
     };
+    let score = MasterAlgo.scoreAGuess(['g','b','r','r'],['r','b','y','b']);
+    console.log("Score:");
+    console.log(MasterAlgo.scoreAGuess(['r','b','y','b'],['g','r','b','b']))
+    console.log(MasterAlgo.scoreAGuess(['r','b','y','b'],['g','b','r','r']))
+    console.log(MasterAlgo.prunePossibleCodes(['r','b','y','b'],score,[['g','b','r','r'],['g','r','b','b']]));
     return (
     <div className="App">
        <p>App</p>

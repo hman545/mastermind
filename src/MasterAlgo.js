@@ -44,9 +44,9 @@ let MasterAlgo = {
                 r++;
             }else{            
                 for(let h = 0; h<4; h++){
-                    if(guess[i]==code[h]&&guess[h]!=code[h]){
-                    w++;
-                    break;
+                    if(guess[i]==code[h]){
+                        w++;
+                        break;
                     }
                 }
             }
@@ -65,6 +65,9 @@ let MasterAlgo = {
             let temporary= MasterAlgo.scoreAGuess(guess, currentPossibleMasterCodes[i]);
             let rtemp = temporary["numPositions"];
             let wtemp = temporary["numJustColors"];
+            console.log("rtemp:"+rtemp);
+            console.log("wtemp"+wtemp);
+            console.log("--");
             if(rtemp==r&&wtemp==w){
                 newMasterCodes.push(currentPossibleMasterCodes[i]);
             }

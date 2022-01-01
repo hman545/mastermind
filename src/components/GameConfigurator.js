@@ -7,7 +7,7 @@ const GameConfigurator = ({startGameCallback}) =>{
         "#e8e8e8", // white
         "#101010", // black
         "#e1e82e", // yellow
-        "#e82ecc", // pink
+        "#082eff", // pink
     ]);
     const [newColor, setNewColor] = React.useState("#000000");
     const [validColor, setValidColor] = React.useState(true);

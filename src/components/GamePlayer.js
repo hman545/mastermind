@@ -40,7 +40,7 @@ const GamePlayer = ({config}) => {
 
         </div>}
         
-        <p>Current Available Master Codes / Valid Guesses:</p>
+        <p>Current Available Master Codes / Valid Guesses ({masterCodes.length}):</p>
         {
             masterCodes.map((code,index) => (<GuessDisp 
             guess={code} 
