@@ -58,8 +58,10 @@ let MasterAlgo = {
                 w++;
             }}
       }
-      console.log("r: "+r);
-      console.log("w: "+w);
+      return {
+        "numPositions":r,
+        "numJustColors":w,
+      };
 
     },
 
