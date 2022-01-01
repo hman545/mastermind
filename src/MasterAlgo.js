@@ -50,14 +50,23 @@ let MasterAlgo = {
       let r =0;
       let w =0;
       for (let i = 0; i<4; i++){
+          console.log("--");
             if (guess[i]==code[i]){
                 r++;
+                console.log("R 1: "+r);
+                console.log("W 1: "+w);
+            }else{            
+                for(let h = 0; h<4; h++){
+                    if(guess[i]==code[h]&&guess[h]!=code[h]){
+                    w++;
+                    console.log("R 2: "+r);
+                    console.log("W 2: "+w);
+                    }
+                }
             }
-            for(let h = 0; h<4; h++){
-                if(guess[i]==code[h]&&guess[i]!=code[i]){
-                w++;
-            }}
       }
+      console.log("R: "+r);
+      console.log("W: "+w);
       return {
         "numPositions":r,
         "numJustColors":w,
@@ -69,7 +78,7 @@ let MasterAlgo = {
         let w = score["numJustColors"];
         let newMasterCodes = [];
         for (let i = 0; i<currentPossibleMasterCodes.length; i++){
-            let temporary= scoreAGuess(guess, currentPossibleMasterCodes[i]);
+            let temporary= MasterAlgo.scoreAGuess(guess, currentPossibleMasterCodes[i]);
             let rtemp = temporary["numPositions"];
             let wtemp = temporary["numJustColors"];
             if(rtemp==r&&wtemp==w){
