@@ -1,17 +1,10 @@
 import React from 'react';
 import ColorDot from './ColorDot.js';
-const GameConfigurator = ({startGameCallback}) =>{
-    const [colors, setColors] = React.useState([
-        "#1f9e30", // green
-        "#e50d23", // red
-        "#e8e8e8", // white
-        "#101010", // black
-        "#e1e82e", // yellow
-        "#082eff", // pink
-    ]);
+const GameConfigurator = ({config,startGameCallback}) =>{
+    const [colors, setColors] = React.useState(config.colors);
     const [newColor, setNewColor] = React.useState("#000000");
     const [validColor, setValidColor] = React.useState(true);
-    const [allowDuplicateColors, setAllowDuplicateColors] = React.useState(true);
+    const [allowDuplicateColors, setAllowDuplicateColors] = React.useState(config.allowDuplicateColors);
     const updateColorBox = (event) => {
         setNewColor(event.target.value);
         let pattern = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
@@ -41,7 +34,8 @@ const GameConfigurator = ({startGameCallback}) =>{
     };
     return (
     <div>
-        <p>GC</p>
+        <h3>Game Configurator</h3>
+        <p>Please configure this screen to (as best as possible) match the physical board and set of rules that you are playing with. If your game allows for blank spaces, just represent that as if it is a new color.</p>
         <p>{colors.length}</p>
         {colors.map((col,index) => (
             <div>
@@ -53,7 +47,7 @@ const GameConfigurator = ({startGameCallback}) =>{
         <button style={{'backgroundColor':validColor?null:"#e00000"}} onClick={addNewColorCallback}>Add new color</button>
         <br/>
         <p>Allow Duplicate Colors:
-            <input type={"checkbox"} checked={allowDuplicateColors} onClick={(()=>{setAllowDuplicateColors(allowDuplicateColors=>!allowDuplicateColors)})} />
+            <input type={"checkbox"} checked={allowDuplicateColors} onChange={(()=>{setAllowDuplicateColors(allowDuplicateColors=>!allowDuplicateColors)})} />
         </p>
         
         <br/>
