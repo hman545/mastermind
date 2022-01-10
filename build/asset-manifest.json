@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/mastermind/static/js/main.f400999e.js",
+    "index.html": "/mastermind/index.html",
+    "main.f400999e.js.map": "/mastermind/static/js/main.f400999e.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.f400999e.js"
+  ]
+}
