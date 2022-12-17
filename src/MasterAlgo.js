@@ -31,30 +31,41 @@ let MasterAlgo = {
         return possibleCodes;
     },
     scoreAGuess: (guess, code) => {
-      //[2,1,4,5]
-      // "numPo"
-      // "numCo"
-      //guess: [0,4,5,1]
-      //code: [3,2,0,1];
-      //expected return: r=1, w=1
-      let r =0;
-      let w =0;
-      for (let i = 0; i<4; i++){
-            if (guess[i]==code[i]){
-                r++;
-            }else{            
-                for(let h = 0; h<4; h++){
-                    if(guess[i]==code[h]){
-                        w++;
-                        break;
-                    }
-                }
+    //[2,1,4,5]
+    // "numPo"
+    // "numCo"
+    //guess: [0,4,5,1]
+    //code: [3,2,0,1];
+    //expected return: r=1, w=1
+    let r =0;
+    let w =0;
+    let usedCodes=[];
+    let usedKeys=[];
+    for (let i = 0; i<guess.length; i++){
+        if (guess[i]==code[i]){
+            usedKeys.push(i);
+            usedCodes.push(i);
+            r++;
+        }
+    }
+    for (let i=0; i<guess.length; i++){
+        if (usedKeys.includes(i)){
+            continue;
+        }
+        for(let h = 0; h<guess.length; h++){
+            if(guess[i]==code[h]){
+                usedKeys.push(i);
+                usedCodes.push(h);
+                w++;
+                break;
             }
-      }
-      return {
-        "numPositions":r,
-        "numJustColors":w,
-      };
+        }
+    }
+
+    return {
+    "numPositions":r,
+    "numJustColors":w,
+    };
 
     },
     prunePossibleCodes: (guess, score, currentPossibleMasterCodes) => {

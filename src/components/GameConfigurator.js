@@ -35,16 +35,19 @@ const GameConfigurator = ({config,startGameCallback}) =>{
     return (
     <div>
         <h3>Game Configurator</h3>
-        <p>Please configure this screen to (as best as possible) match the physical board and set of rules that you are playing with. If your game allows for blank spaces, just represent that as if it is a new color.</p>
-        <p>{colors.length}</p>
+        <p>Please configure this screen to match the physical board and set of rules that you are playing with. If your game allows for blank spaces, just represent that as if it is a new color.</p>
+        <hr/>
+        <p>{`Number of colors: ${colors.length}`}</p>
         {colors.map((col,index) => (
-            <div>
+            <div key={"colorConfig"+index} className="configurator-li">
+                
                 <ColorDot color={col}/>
-                <button onClick={()=>{delColor(index)}}>-</button>
+                <p>{`(${col})`}</p>
+                <button onClick={()=>{delColor(index)}}>Remove Color (-)</button>
             </div>
         ))}
         <textarea value={newColor} onChange={updateColorBox}/>
-        <button style={{'backgroundColor':validColor?null:"#e00000"}} onClick={addNewColorCallback}>Add new color</button>
+        <button style={{margin:'20px','backgroundColor':validColor?null:"#e00000"}} onClick={addNewColorCallback}>Add new color</button>
         <br/>
         <p>Allow Duplicate Colors:
             <input type={"checkbox"} checked={allowDuplicateColors} onChange={(()=>{setAllowDuplicateColors(allowDuplicateColors=>!allowDuplicateColors)})} />
@@ -52,7 +55,7 @@ const GameConfigurator = ({config,startGameCallback}) =>{
         
         <br/>
         <br/>
-        <button onClick={() =>startGameCallback(genCurrentConfig())} >Play Game</button>
+        <button className="playbutton" onClick={() =>startGameCallback(genCurrentConfig())} >Play Game</button>
     </div>
     );
 };
