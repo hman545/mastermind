@@ -36,7 +36,7 @@ function App() {
             <h2>Mastermind Solver</h2>
             </div>
            <p>
-               Mastermind is a simple code-cracking game where one person creates a four color code from a set of n colors. Your task is then to make a series of guesses whereafter your opponent will tell your know many of the colors are in the right order and right color and how many are just the right color. Victory is achieved when all of them are in the right order and they are the right color.
+               Mastermind is a simple code-cracking game where one person creates a four color code from a set of n colors. Your task is then to make a series of guesses whereafter your opponent will tell you how many of the colors are in the right order and right color and how many are just the right color. Victory is achieved when all of them are in the right order and they are the right color.
                <br/>
                <br/>
                This website is a cool tool to cheat at that game using the Knuth algorithm. First, set up the rules (like the number of colors) and whether or not to allow duplicate colors. Then feed back their responses to each of your moves into this solver. 
